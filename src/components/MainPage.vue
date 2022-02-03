@@ -99,8 +99,6 @@ export default {
       }
       this.mobileView = false
       this.mobileNav = false
-      // eslint-disable-next-line
-      return
     }
   },
   async mounted () {

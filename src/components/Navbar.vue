@@ -9,10 +9,12 @@
         <h4>Мой кабинет</h4>
         <img src="@/assets/arrowRight.svg" alt="arrow">
         </div>
-        <div class="navbar-list__item">
+        <div @click="navbarItem = !navbarItem" class="navbar-list__item">
           <h4>Обучение</h4>
-          <img src="@/assets/arrowDown.svg" alt="">
+          <img v-if="navbarItem" src="@/assets/arrowDown.svg" alt="arrowDown">
+          <img v-else src="@/assets/arrowRight.svg" alt="arrow">
         </div>
+        <div class="navbar-item__block" v-show="navbarItem">
         <div class="navbar-item__list">
           <p>Семинары и курсы</p>
         </div>
@@ -24,6 +26,7 @@
         </div>
         <div class="navbar-item__list">
           <p>Тьютор</p>
+        </div>
         </div>
         <div class="navbar-list__item">
           <h4>Чат</h4>
@@ -50,7 +53,12 @@
 
 <script>
 export default {
-  name: 'Navbar'
+  name: 'Navbar',
+  data () {
+    return {
+      navbarItem: null
+    }
+  }
 }
 </script>
 
@@ -87,14 +95,17 @@ export default {
   line-height: 24px;
 }
 .navbar-item__list{
-  padding: 0 3rem;
+  padding: 0 1rem;
   width: 320px;
-  height: 32px;
+  height: 20px;
   font-family: "Inter", Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
   line-height: 24px;
+}
+.navbar-item__block{
+    margin-bottom: 10px;
 }
 .navbar-arrow{
   width: 24px;
